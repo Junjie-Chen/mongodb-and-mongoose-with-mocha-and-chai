@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Junjie-Chen/mongodb-and-mongoose-with-mocha-and-chai/issues"
   },
-  "homepage": "https://github.com/Junjie-Chen/mongodb-and-mongoose-with-mocha-and-chai#readme"
+  "homepage": "https://github.com/Junjie-Chen/mongodb-and-mongoose-with-mocha-and-chai#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
