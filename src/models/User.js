@@ -30,3 +30,5 @@ userSchema.pre('remove', function(next) {
   BlogPost.deleteMany({ _id: { $in: this.blogPosts } })
     .then(() => next());
 });
+
+const User = mongoose.model('User', userSchema);
