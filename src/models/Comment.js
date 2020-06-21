@@ -8,3 +8,5 @@ const commentSchema = new Schema({
     ref: 'User'
   }
 });
+
+const Comment = mongoose.model('Comment', commentSchema);
