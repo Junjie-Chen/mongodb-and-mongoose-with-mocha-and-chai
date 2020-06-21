@@ -9,3 +9,5 @@ const blogPostSchema = new Schema({
     ref: 'Comment'
   }]
 });
+
+const BlogPost = mongoose.model('BlogPost', blogPostSchema);
