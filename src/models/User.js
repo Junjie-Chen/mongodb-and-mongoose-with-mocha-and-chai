@@ -9,5 +9,6 @@ const userSchema = new Schema({
       message: 'Name must be longer than 2 characters.'
     },
     required: [true, 'Name is required.']
-  }
+  },
+  likes: Number
 });
