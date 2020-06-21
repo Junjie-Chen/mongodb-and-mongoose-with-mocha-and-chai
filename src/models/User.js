@@ -23,3 +23,10 @@ userSchema.virtual('postCount')
   .get(function() {
     return this.posts.length;
   });
+
+userSchema.pre('remove', function(next) {
+  const BlogPost = mongoose.model('BlogPost');
+
+  BlogPost.deleteMany({ _id: { $in: this.blogPosts } })
+    .then(() => next());
+});
