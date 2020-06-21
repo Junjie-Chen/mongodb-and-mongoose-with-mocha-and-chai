@@ -1,0 +1,20 @@
+{
+  "name": "mongodb-and-mongoose-with-mocha-and-chai",
+  "version": "1.0.0",
+  "description": "_Grasp the core concepts and main operations of MongoDB and Mongoose with Mocha and Chai_",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Junjie-Chen/mongodb-and-mongoose-with-mocha-and-chai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Junjie-Chen/mongodb-and-mongoose-with-mocha-and-chai/issues"
+  },
+  "homepage": "https://github.com/Junjie-Chen/mongodb-and-mongoose-with-mocha-and-chai#readme"
+}
