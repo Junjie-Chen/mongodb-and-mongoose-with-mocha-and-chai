@@ -18,3 +18,8 @@ const userSchema = new Schema({
     ref: 'BlogPost'
   }]
 });
+
+userSchema.virtual('postCount')
+  .get(function() {
+    return this.posts.length;
+  });
