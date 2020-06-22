@@ -24,4 +24,10 @@ describe('Update', () => {
         done();
       });
   };
+
+  it('should update a user by setting their properties', done => {
+    user.set('name', 'Joane');
+
+    assert(user.save(), done);
+  });
 });
