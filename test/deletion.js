@@ -36,4 +36,8 @@ describe('Deletion', () => {
   it('should delete a user by finding their record', done => {
     assert(User.findOneAndDelete({ name: 'Joe' }), done);
   });
+
+  it('should delete a user by finding their id', done => {
+    assert(User.findByIdAndDelete(user._id), done);
+  });
 });
