@@ -37,4 +37,27 @@ describe('Subdocument', () => {
         done();
       });
   });
+
+  it('should delete a subdocument', done => {
+    const user = new User({
+      name: 'Joe',
+      posts: [{ title: 'JavaScript is great!' }]
+    });
+
+    user.save()
+      .then(() => User.findOne({ name: 'Joe' }))
+      .then(user => {
+        const post = user.posts[0];
+
+        post.remove();
+
+        return user.save();
+      })
+      .then(() => User.findOne({ name: 'Joe' }))
+      .then(user => {
+        expect(user.posts).to.have.lengthOf(0);
+
+        done();
+      });
+  });
 });
