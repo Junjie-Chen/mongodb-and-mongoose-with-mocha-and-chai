@@ -36,4 +36,13 @@ describe('Read', () => {
         done();
       });
   });
+
+  it('should find a user by their id', done => {
+    User.findById(userTwo._id)
+      .then(user => {
+        expect(user.name).to.equal('Joe');
+
+        done();
+      });
+  });
 });
