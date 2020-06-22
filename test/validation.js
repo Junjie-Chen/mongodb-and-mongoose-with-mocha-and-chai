@@ -21,4 +21,17 @@ describe('Validation', () => {
 
     expect(message).to.equal('Name must be longer than 2 characters.');
   });
+
+  it('should prevent a user with an invalid name from being saved', done => {
+    const user = new User({ name: 'Jo' });
+
+    user.save()
+      .catch(result => {
+        const { errors: { name: { message } } } = result;
+
+        expect(message).to.equal('Name must be longer than 2 characters.');
+
+        done();
+      });
+  });
 });
