@@ -1,3 +1,4 @@
+const { expect } = require('chai');
 const User = require('../src/models/User');
 const BlogPost = require('../src/models/BlogPost');
 const Comment = require('../src/models/Comment');
@@ -27,5 +28,15 @@ describe('Association', () => {
       comment.save()
     ])
       .then(() => done());
+  });
+
+  it('should associate a user with a blog post', done => {
+    User.findOne({ name: 'Joe' })
+      .populate('blogPosts')
+      .then(user => {
+        expect(user.blogPosts[0].title).to.equal('JavaScript is great!');
+
+        done();
+      });
   });
 });
