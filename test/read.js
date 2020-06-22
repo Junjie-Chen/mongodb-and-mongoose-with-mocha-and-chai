@@ -45,4 +45,18 @@ describe('Read', () => {
         done();
       });
   });
+
+  it('should skip and limit a list of users', done => {
+    User.find({})
+      .sort({ name: 1 })
+      .skip(1)
+      .limit(2)
+      .then(users => {
+        expect(users).to.have.lengthOf(2);
+        expect(users[0].name).to.equal('Joe');
+        expect(users[1].name).to.equal('Maria');
+
+        done();
+      });
+  });
 });
