@@ -16,4 +16,25 @@ describe('Subdocument', () => {
         done();
       });
   });
+
+  it('should add a subdocument', done => {
+    const user = new User({
+      name: 'Joe',
+      posts: []
+    });
+
+    user.save()
+      .then(() => User.findOne({ name: 'Joe' }))
+      .then(user => {
+        user.posts.push({ title: 'JavaScript is great!' });
+
+        return user.save();
+      })
+      .then(() => User.findOne({ name: 'Joe' }))
+      .then(user => {
+        expect(user.posts[0].title).to.equal('JavaScript is great!');
+
+        done();
+      });
+  });
 });
