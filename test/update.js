@@ -38,4 +38,8 @@ describe('Update', () => {
   it('should update a user', done => {
     assert(User.updateOne({ name: 'Joe' }, { name: 'Joane' }), done);
   });
+
+  it('should update a user by finding their record', done => {
+    assert(User.findOneAndUpdate({ name: 'Joe' }, { name: 'Joane' }), done);
+  });
 });
