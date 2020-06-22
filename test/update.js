@@ -46,4 +46,14 @@ describe('Update', () => {
   it('should update a user by finding their id', done => {
     assert(User.findByIdAndUpdate(user._id, { name: 'Joane' }), done);
   });
+
+  it('should update a list of users by incrementing their values', done => {
+    User.updateMany({ name: 'Joe' }, { $inc: { likes: 1 } })
+      .then(() => User.findOne({ name: 'Joe' }))
+      .then(user => {
+        expect(user.likes).to.equal(1);
+
+        done();
+      });
+  });
 });
