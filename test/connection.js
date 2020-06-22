@@ -14,3 +14,11 @@ before(done => {
   connection.once('open', () => done())
     .on('error', console.error.bind(console, 'connection error:'));
 });
+
+beforeEach(done => {
+  connection.dropCollection('users', () => {
+    connection.dropCollection('blogposts', () => {
+      connection.dropCollection('comments', () => done());
+    });
+  });
+});
