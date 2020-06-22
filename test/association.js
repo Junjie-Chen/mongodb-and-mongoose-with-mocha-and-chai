@@ -39,4 +39,27 @@ describe('Association', () => {
         done();
       });
   });
+
+  it('should associate a user, a blog post and a comment with each other', done => {
+    User.findOne({ name: 'Joe' })
+      .populate({
+        path: 'blogPosts',
+        populate: {
+          path: 'comments',
+          model: 'Comment',
+          populate: {
+            path: 'user',
+            model: 'User'
+          }
+        }
+      })
+      .then(user => {
+        expect(user.name).to.equal('Joe');
+        expect(user.blogPosts[0].title).to.equal('JavaScript is great!');
+        expect(user.blogPosts[0].comments[0].content).to.equal('Congratulations on the great post!');
+        expect(user.blogPosts[0].comments[0].user.name).to.equal('Joe');
+
+        done();
+      });
+  });
 });
