@@ -1,3 +1,4 @@
+const { expect } = require('chai');
 const User = require('../src/models/User');
 
 describe('Update', () => {
@@ -12,4 +13,15 @@ describe('Update', () => {
     user.save()
       .then(() => done());
   });
+
+  const assert = (operation, done) => {
+    operation
+      .then(() => User.find({}))
+      .then(users => {
+        expect(users).to.have.lengthOf(1);
+        expect(users[0].name).to.equal('Joane');
+
+        done();
+      });
+  };
 });
