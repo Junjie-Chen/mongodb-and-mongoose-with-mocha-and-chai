@@ -28,4 +28,8 @@ describe('Deletion', () => {
   it('should delete a list of users', done => {
     assert(User.deleteMany({ name: 'Joe' }), done);
   });
+
+  it('should delete a user', done => {
+    assert(User.deleteOne({ name: 'Joe' }), done);
+  });
 });
