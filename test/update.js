@@ -30,4 +30,8 @@ describe('Update', () => {
 
     assert(user.save(), done);
   });
+
+  it('should update a list of users', done => {
+    assert(User.updateMany({ name: 'Joe' }, { name: 'Joane' }), done);
+  });
 });
