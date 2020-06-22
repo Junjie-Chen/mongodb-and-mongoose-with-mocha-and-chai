@@ -11,4 +11,14 @@ describe('Validation', () => {
 
     expect(message).to.equal('Name is required.');
   });
+
+  it('should validate the name of a user', () => {
+    const user = new User({ name: 'Jo' });
+
+    const result = user.validateSync();
+
+    const { errors: { name: { message } } } = result;
+
+    expect(message).to.equal('Name must be longer than 2 characters.');
+  });
 });
