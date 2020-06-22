@@ -1,3 +1,4 @@
+const { expect } = require('chai');
 const User = require('../src/models/User');
 
 describe('Read', () => {
@@ -16,5 +17,14 @@ describe('Read', () => {
       userFour.save()
     ])
       .then(() => done());
+  });
+
+  it('should find a list of users', done => {
+    User.find({ name: 'Joe' })
+      .then(users => {
+        expect(users[0]._id).to.deep.equal(userTwo._id);
+
+        done();
+      });
   });
 });
