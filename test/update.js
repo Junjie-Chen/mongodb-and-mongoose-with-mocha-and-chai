@@ -34,4 +34,8 @@ describe('Update', () => {
   it('should update a list of users', done => {
     assert(User.updateMany({ name: 'Joe' }, { name: 'Joane' }), done);
   });
+
+  it('should update a user', done => {
+    assert(User.updateOne({ name: 'Joe' }, { name: 'Joane' }), done);
+  });
 });
