@@ -24,4 +24,8 @@ describe('Deletion', () => {
   it('should delete a user by removing their record', done => {
     assert(user.remove(), done);
   });
+
+  it('should delete a list of users', done => {
+    assert(User.deleteMany({ name: 'Joe' }), done);
+  });
 });
