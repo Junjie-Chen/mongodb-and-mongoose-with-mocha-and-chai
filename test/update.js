@@ -42,4 +42,8 @@ describe('Update', () => {
   it('should update a user by finding their record', done => {
     assert(User.findOneAndUpdate({ name: 'Joe' }, { name: 'Joane' }), done);
   });
+
+  it('should update a user by finding their id', done => {
+    assert(User.findByIdAndUpdate(user._id, { name: 'Joane' }), done);
+  });
 });
