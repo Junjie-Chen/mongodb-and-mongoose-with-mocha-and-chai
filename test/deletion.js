@@ -1,3 +1,4 @@
+const { expect } = require('chai');
 const User = require('../src/models/User');
 
 describe('Deletion', () => {
@@ -9,4 +10,14 @@ describe('Deletion', () => {
     user.save()
       .then(() => done());
   });
+
+  const assert = (operation, done) => {
+    operation
+      .then(() => User.findOne({ name: 'Joe' }))
+      .then(user => {
+        expect(user).to.be.null;
+
+        done();
+      });
+  };
 });
